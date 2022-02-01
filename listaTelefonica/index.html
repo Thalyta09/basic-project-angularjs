@@ -1,0 +1,48 @@
+<html ng-app="listaTelefonica">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Telefonica</title>
+
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <link rel="stylesheet" type="text/css" href="./css/ui.css">
+
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular/angular-route.js"></script>
+    <script src="./lib/angular/angular-locale_pt-br.js"></script>
+    <script src="./lib/serialGenerator/serialGenerator.js"></script>
+    <script src="./lib/accordion/uiAccordion.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers/listaTelefonicaCtrl.js"></script>
+    <script src="./js/controllers/novoContatoCtrl.js"></script>
+    <script src="./js/controllers/detalhesContatoCtrl.js"></script>
+    <script src="./js/services/contatosAPIService.js"></script>
+    <script src="./js/services/operadorasAPIService.js"></script>
+    <script src="./js/config/serialGeneratorConfig.js"></script>
+    <script src="./js/config/routeConfig.js"></script>
+    <script src="./js/config/interceptorConfig.js"></script>
+    <script src="./js/value/configValue.js"></script>
+    <script src="./js/filters/nameFilter.js"></script>
+    <script src="./js/filters/ellipsesFilter.js"></script>
+    <script src="./js/directives/uiAlertDirective.js"></script>
+    <script src="./js/directives/uiDataDirective.js"></script>
+    <script src="./js/interceptors/timestampInterceptor.js"></script>
+    <script src="./js/interceptors/errorInterceptor.js"></script>
+    <script src="./js/interceptors/loadingInterceptor.js"></script>
+
+</head>
+
+<body>
+    <div class="p-5 bg-light" ng-show="loading">
+        <div>Carregando, por favor aguarde...</div>
+    </div>
+    <div ng-hide="loading">
+        <div ng-view></div>
+        <div style="text-align: center; margin-top: 20px;">
+            Desenvolvido por Thalyta Conrado
+        </div>
+    </div>
+</body>
+
+</html>

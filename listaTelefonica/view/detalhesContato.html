@@ -1,0 +1,38 @@
+<div id="container" class="p-5 bg-light">
+    <div id="detalheContato">
+        <h3>Detalhes de {{contato.nome}}</h3>
+
+        <table class="table table-striped">
+            <tr>
+                <td></td>
+                <th>ID</a></th>
+                <th>Nome</a></th>
+                <th>Telefone</a></th>
+                <th>Operadora</a></th>
+                <th>Data</a></th>
+            </tr>
+            <tr ng-class="{selecionado: contato.selecionado}">
+                <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+                <td>{{::contato.id}}</td>
+                <td>{{::contato.nome | name}}</td>
+                <td>{{::contato.telefone}}</td>
+                <td>{{::contato.operadora.nome}}</td>
+                <td>{{::contato.data | date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </table>
+
+        <ui-accordions>
+            <ui-accordion title="Accordion 1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac urna nulla.
+                Vivamus semper gravida quam, ut gravida ligula tincidunt id. Nunc tincidunt,
+                nunc eu fermentum feugiat, turpis nisi rutrum nulla, eget molestie mauris augue sed eros.
+                Nullam luctus turpis risus, vel blandit diam consequat a. Pellentesque neque metus,
+                tempus eu libero molestie, facilisis porta metus. Ut eget odio lacinia neque finibus posuere.
+            </ui-accordion>
+        </ui-accordions>
+
+        <a href="#!/contact" type="button" class="btn btn-primary" style="margin:10px">
+            Voltar
+        </a>
+    </div>
+</div>

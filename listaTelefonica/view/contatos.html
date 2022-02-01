@@ -1,0 +1,40 @@
+<div id="container" class="p-5 bg-light">
+    <div id="listaContatos">
+        <h3>{{app}}</h3>
+
+        <input 
+            class="form-control" 
+            type="text" 
+            ng-model="busca"
+            ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}"
+            placeholder="Filtro" />
+
+        <table ng-show="contatos.length > 0" class="table table-striped">
+            <tr>
+                <td></td>
+                <th><a href="" ng-click="ordenarPor('serial')">Serial</a></th>
+                <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
+                <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
+                <th><a href="" ng-click="ordenarPor('operadora')">Operadora</a></th>
+                <th><a href="" ng-click="ordenarPor('data')">Data</a></th>
+            </tr>
+            <tr ng-class="{'selecionado negrito': contato.selecionado}" 
+                ng-repeat="contato in contatos | filter:busca | orderBy:ordenacao:direcao track by $index">
+                    <td><input type="checkbox" ng-model="contato.selecionado" ng-selected="verificarContatoSelecionado(contatos)"/></td>
+                    <td>{{::contato.serial}}</td>
+                    <td><a href="#!/details-contact/{{contato.id}}">{{::contato.nome | name}}</a></td>
+                    <td>{{::contato.telefone}}</td>
+                    <td>{{::contato.operadora.nome}}</td>
+                    <td>{{::contato.data | date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </table>
+
+        <a href="#!/new-contact" type="button" class="btn btn-primary" >
+            Adicionar Contato
+        </a>
+        <button class="btn btn-danger" type="button" ng-if="hasContatoSelecionado" ng-click="apagarContatos(contatos)">
+            Apagar Contatos
+        </button>
+    </div>
+    <hr>
+</div>
